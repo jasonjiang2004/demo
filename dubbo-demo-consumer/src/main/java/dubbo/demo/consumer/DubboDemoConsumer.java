@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description: TODO
  * @author: Jason
  * @Date: 2019/8/20
- * @Copyright (C), 2018-2019, 南天电脑系统有限公司
+ * @Copyright (C), 2018-2022
  */
 
 @EnableAutoConfiguration
@@ -21,9 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DubboDemoConsumer {
 
+    /**
+     * "dubbo://192.168.0.165:12345?version=1.0.0" 需要增加version=1.0.0，否则在服务调用时找不服务。2021-11-23
+     */
     @Reference(version = "${echo.service.version}",
                application = "${dubbo.application.id}",
-               url = "dubbo://localhost:12345"
+               url = "dubbo://192.168.0.165:12345?version=1.0.0"
     )
     private DemoService demoService ;
 
@@ -37,6 +40,7 @@ public class DubboDemoConsumer {
     public static void main(String[] args) {
         SpringApplication
                 .run(DubboDemoConsumer.class,args);
+        System.out.println("My Consumer application is running now !!");
 
     }
 

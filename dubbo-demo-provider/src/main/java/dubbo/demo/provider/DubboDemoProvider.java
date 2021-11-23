@@ -9,7 +9,7 @@ import org.springframework.context.annotation.PropertySource;
  * @Description: TODO
  * @author: Jason
  * @Date: 2019/8/20
- * @Copyright (C), 2018-2019, 南天电脑系统有限公司
+ * @Copyright (C), 2018-2022
  */
 
 @EnableAutoConfiguration  //激活自动装配
@@ -23,6 +23,7 @@ public class DubboDemoProvider {
                 .properties("dubbo.scan.basePackages= dubbo.demo.provider")
                 .properties("management.endpoints.web.exposure.include = *")
                 .run(args);
+        System.out.println("My Provider application is running now!");
     }
 
 }
