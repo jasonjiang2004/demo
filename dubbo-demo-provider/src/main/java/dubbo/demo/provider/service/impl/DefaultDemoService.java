@@ -8,11 +8,11 @@ import org.apache.dubbo.config.annotation.Service;
  * @Description: TODO
  * @author: Jason
  * @Date: 2019/8/20
- * @Copyright (C), 2018-2019, 南天电脑系统有限公司
+ * @Copyright (C), 2018-2022
  */
 
 @Service(version = "${echo.service.version}",
-        application = "${spring.application.id}",
+        application = "${dubbo.application.id}",
         protocol = "${dubbo.protocol.id}",
         registry = "${dubbo.registry.id}"
 )
